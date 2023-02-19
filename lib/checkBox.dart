@@ -16,9 +16,10 @@ class _checkBoxState extends State<checkBox> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(children: [
+        body: Center(
+            child: Column(children: [
       Padding(
-        padding: const EdgeInsets.all(50),
+        padding: const EdgeInsets.fromLTRB(0, 100, 0, 100),
         child: GradientText(
           'Check Box Demo',
           style: const TextStyle(
@@ -33,18 +34,23 @@ class _checkBoxState extends State<checkBox> {
         ),
       ),
       Padding(
-        padding: EdgeInsets.only(top: 50),
-        child: Checkbox(
-          value: isClick,
-          onChanged: (bool? value) {
-            setState(() {
-              print('clicked');
-              isClick = value!;
-            });
-          },
-          activeColor: Colors.blue,
-        ),
-      )
-    ]));
+          padding: EdgeInsets.only(top: 100),
+          child: Transform.scale(
+            scale: 1.5,
+            child: Checkbox(
+              value: isClick,
+              onChanged: (bool? value) {
+                setState(() {
+                  print('clicked');
+                  isClick = value!;
+                });
+              },
+              //activeColor: Colors.blue,
+              //hoverColor: Colors.yellow,
+              //autofocus: true,
+              //materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            ),
+          )),
+    ])));
   }
 }
